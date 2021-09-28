@@ -2,23 +2,23 @@
 - name: Install monitoring tools
   hosts: clients
   tasks:
-    #    - name: Install elasticsearch
-    # include_role:
-    #     name: elk
+    - name: Install elasticsearch
+      include_role:
+        name: elk
     
-    #- name: Install nagios for Ubuntu
-    # include_role:
-    #   name: nagios_ubuntu
-    # when: ansible_facts['distribution'] == 'Ubuntu'
+    - name: Install nagios for Ubuntu
+      include_role:
+        name: nagios_ubuntu
+      when: ansible_facts['distribution'] == 'Ubuntu'
 
-    #- name: Install nagios for Centos
-    # include_role:
-    #   name: nagios_centos
-    # when: ansible_facts['distribution'] == 'CentOS'
-    #
-    #- name: Install grafana
-      #include_role:
-      # name: grafana
+    - name: Install nagios for Centos
+      include_role:
+        name: nagios_centos
+      when: ansible_facts['distribution'] == 'CentOS'
+    
+    - name: Install grafana
+      include_role:
+        name: grafana
           
     - name: Install prometheus for Ubuntu
       include_role:
